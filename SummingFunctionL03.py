@@ -50,6 +50,7 @@ __var means var is private
 constructor to init an object
 '''
 
+'''
 def test_SummingFunctionL03():
     #from SummingFunctionL03 import summer
 
@@ -62,3 +63,4 @@ def test_SummingFunctionL03():
     assert summer('p', 5) == -1
     assert summer('HiRyan', 5) == -1
     assert summer((1/0), 5) == -1
+'''
