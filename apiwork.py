@@ -1,5 +1,8 @@
 from flask import Flask, request, jsonify
+from SummingFunctionL03 import summer
 app = Flask(__name__)
+
+request_counter = 0
 
 
 @app.route("/hello/<name>")
@@ -15,5 +18,13 @@ def api():
 
 @app.route("/api/add", methods=['POST'])
 def add():
-    x = request.json['a'] + request.json['b']
+    global request_counter
+    request_counter = request_counter + 1
+    # x = request.json['a'] + request.json['b']
+    x = summer(request.json['a'], request.json['b'])
     return jsonify(x)
+
+
+@app.route("/api/requests")
+def requests():
+    return jsonify(request_counter)
